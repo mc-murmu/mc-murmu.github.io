@@ -44,6 +44,15 @@ const apps = [
     description: "● Pro | Paid features unlocked\n● Stable mod\n● No VPN required\n● All templates working\n● Business builder mode enabled\n● Security notice removed\n● Multiple languages available\n● Regional restrictions removed\n● Login by \"Email & Number & Facebook & Tiktok\" ✅\n● Can export your videos without login & without internet ✅\n● Requires Android 6.0 or higher\n● CPU architecture: Universal\n● Optimized and cleaned resources for fast loading",
     badge: "Trending",
     download: ""
+  },
+  {
+    name: "Pawxy Vpn [ Premium ]",
+    version: "v.1.14.0",
+    category: "Social",
+    logo: "https://imgdb.in/i/gU1leDvmOk.png",
+    description: "• Premium unlocked 💥\n• All regions unlocked \n• Safe & secure 🔐",
+    badge: "Social",
+    download: "https://www.mediafire.com/file/z1c5v6uuatxbjim/Pawxy_1.14.0%255Bby-bijay%255D.apk/file"
   }
 ];
 
