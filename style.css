@@ -178,25 +178,7 @@ button,input{font:inherit}
   height: 20px;
   fill: currentColor;
 }
-.profile-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #dce6f7;
-  text-decoration: none;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
 
-.profile-icon {
-  width: 28px;
-  height: 28px;
-  display: block;
-}
-
-.profile-link:hover {
-  color: #ffffff;
-  transform: scale(1.08);
-}
 .socials a:nth-child(2) svg {
   fill: none;
   stroke: currentColor;
