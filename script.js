@@ -35,8 +35,16 @@ const apps = [
     description: "Netplay APK is a free and easy-to-use streaming app that lets you watch movies, anime, TV shows, and sports in HD 🔥.",
     badge: "Funn",
     download: ""
+  },
+  {
+    name: "CapCut  (Ultra Version Pro)",
+    version: "v19.7.0",
+    category: "Tools",
+    logo: "https://imgdb.in/i/gU0lIc9R3W.png",
+    description: "● Pro | Paid features unlocked\n● Stable mod\n● No VPN required\n● All templates working\n● Business builder mode enabled\n● Security notice removed\n● Multiple languages available\n● Regional restrictions removed\n● Login by \"Email & Number & Facebook & Tiktok\" ✅\n● Can export your videos without login & without internet ✅\n● Requires Android 6.0 or higher\n● CPU architecture: Universal\n● Optimized and cleaned resources for fast loading",
+    badge: "Trending",
+    download: ""
   }
-  
 ];
 
 
