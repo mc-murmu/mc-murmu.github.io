@@ -26,6 +26,15 @@ const apps = [
     description: "Extra for YouTube premium. app required for account login 🔥.",
     badge: "Popular",
     download: "https://www.mediafire.com/file/i167y6s90rp83kx/microG_Services_0.3.13.2.250932.apk/file"
+  },
+  {
+    name: "NetPlay",
+    version: "v0.4.86",
+    category: "Entertainment",
+    logo: "https://imgdb.in/i/gTRMyeKE6Y.webp",
+    description: "Netplay APK is a free and easy-to-use streaming app that lets you watch movies, anime, TV shows, and sports in HD 🔥.",
+    badge: "Funn",
+    download: "https://www.mediafire.com/file/pgwc494f7p23hk0/Netplay_10.0_%255Bby-bijay%255D.apk/file"
   }
 ];
 
