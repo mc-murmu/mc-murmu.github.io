@@ -120,10 +120,8 @@ function renderFeatured() {
 }
 
 
-document.getElementById("loadMore").addEventListener("click", () => {
-  visibleCount += 4;
-  renderApps();
-});
+document.getElementById("loadMore").style.display =
+  filtered.length > visibleCount ? "block" : "none";
 
 
 searchInput.addEventListener("input", () => {
