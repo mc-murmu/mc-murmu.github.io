@@ -153,6 +153,12 @@ button,input{font:inherit}
   object-fit: cover;
   display: block;
 }
+.brand-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 .socials a {
   display: flex;
   align-items: center;
