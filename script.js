@@ -6,7 +6,7 @@ const apps = [
     logo: "https://imgdb.in/i/gKk4IUvZRK.jpg",
     description: "Watch movies free without spending a penny.",
     badge: "New",
-    download: ""
+    download: "https://www.mediafire.com/file/mfbh8wh0vx6133m/MovieBox_4_%255BBY-BIJAY%255D.apk/file"
   },
 
   {
@@ -16,7 +16,7 @@ const apps = [
     logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
     description: "Enjoy YouTube with fewer interruptions, background playback, and a smoother viewing experience.",
     badge: "Popular",
-    download: ""
+    download: "https://www.mediafire.com/file/afkf84lxjf18o5p/YouTube_Premium_21.10.493_clone.apk/file"
   }
 ];
 
