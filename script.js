@@ -62,6 +62,15 @@ const apps = [
     description: "• Premium unlocked ✓\n• Optimize for higher Android version ✓\n• Safe & secure 🔐\n• Mod by Marang B4bu",
     badge: "Popular",
     download: "https://www.mediafire.com/file/ovf0law2s0gr2z7/Lightroom_11.5.0_%255BBY-BIJ4Y%255D.apk/file"
+  },
+  {
+    name: "Truecaller [ Gold ]",
+    version: "v26.33.6",
+    category: "Social",
+    logo: "https://imgdb.in/i/gUOfSRMnAs.png",
+    description: "• Paid/Gold unlocked 💥\n• safe & secure 🔐\n• 64bit only \n• minimum Android version 8.0",
+    badge: "Popular",
+    download: "https://www.mediafire.com/file/wpfdnw7kpn7yyz6/Truecaller-v26.33.6%255BBY_MC-BIJAY%255D.apk/file"
   }
 ];
 
