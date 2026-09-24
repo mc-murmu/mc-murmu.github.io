@@ -165,7 +165,7 @@ button,input{font:inherit}
   height: 100%;
   object-fit: cover;
   display: block;
-  transform: rotate(-90deg) scale(1.05);
+  transform: rotate(-180deg) scale(1.5);
 }
 .socials a {
   display: flex;
