@@ -35,6 +35,15 @@ const apps = [
     description: "Netplay APK is a free and easy-to-use streaming app that lets you watch movies, anime, TV shows, and sports in HD 🔥.",
     badge: "Funn",
     download: "https://www.mediafire.com/file/pgwc494f7p23hk0/Netplay_10.0_%255Bby-bijay%255D.apk/file"
+  },
+  {
+    name: "Fuck apk",
+    version: "v1.0.0",
+    category: "Fun",
+    logo: "https://",
+    description: "Fuck update",
+    badge: "Popular",
+    download: "https://"
   }
 ];
 
