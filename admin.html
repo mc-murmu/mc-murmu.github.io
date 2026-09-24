@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#07101f">
+
+  <title>APK HUB — Admin</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #07101f;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .panel {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      margin: 10px 0 5px;
+    }
+
+    .sub {
+      color: #8996ad;
+      margin-bottom: 25px;
+    }
+
+    .section {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid #1d2a40;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 7px;
+      color: #aeb9ce;
+      font-size: 14px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #26344d;
+      border-radius: 10px;
+      outline: none;
+      background: #0d1728;
+      color: white;
+      font-size: 15px;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #7657ff;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      border: 0;
+      border-radius: 10px;
+      background: #7657ff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(.98);
+    }
+
+    .secondary {
+      background: #17243a;
+    }
+
+    .danger {
+      background: #40202a;
+    }
+
+    pre {
+      margin-top: 10px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #030811;
+      border: 1px solid #26344d;
+      color: #dce5f7;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-x: auto;
+    }
+
+    .status {
+      margin-top: 18px;
+      padding: 12px;
+      border-radius: 10px;
+      display: none;
+      line-height: 1.4;
+    }
+
+    .success {
+      display: block;
+      background: #123322;
+      color: #8ff0ae;
+    }
+
+    .error {
+      display: block;
+      background: #3a1820;
+      color: #ff9dab;
+    }
+
+    .hint {
+      margin-top: 8px;
+      color: #71809a;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="panel">
+
+  <h1>🚀 APK HUB Admin</h1>
+
+  <div class="sub">
+    Add a new APK to the website
+  </div>
+
+
+  <!-- APK DETAILS -->
+
+  <label for="name">App Name</label>
+  <input
+    id="name"
+    type="text"
+    placeholder="YouTube Premium"
+  >
+
+
+  <label for="version">Version</label>
+  <input
+    id="version"
+    type="text"
+    placeholder="21.36.12"
+  >
+
+
+  <label for="category">Category</label>
+  <input
+    id="category"
+    type="text"
+    placeholder="Media"
+  >
+
+
+  <label for="logo">Logo URL</label>
+  <input
+    id="logo"
+    type="url"
+    placeholder="https://example.com/logo.png"
+  >
+
+
+  <label for="description">Description</label>
+  <textarea
+    id="description"
+    placeholder="Describe the app..."
+  ></textarea>
+
+
+  <label for="badge">Badge</label>
+
+  <select id="badge">
+    <option value="">None</option>
+    <option value="New">New</option>
+    <option value="Popular">Popular</option>
+    <option value="Trending">Trending</option>
+  </select>
+
+
+  <label for="download">Download URL</label>
+  <input
+    id="download"
+    type="url"
+    placeholder="https://example.com/download"
+  >
+
+
+  <button onclick="generateCode()">
+    Generate Entry
+  </button>
+
+
+  <!-- GENERATED CODE -->
+
+  <div class="section">
+
+    <h3>Generated JavaScript</h3>
+
+    <pre id="output">Nothing generated yet.</pre>
+
+    <button
+      class="secondary"
+      onclick="copyCode()">
+      📋 Copy Code
+    </button>
+
+  </div>
+
+
+  <!-- GITHUB SETTINGS -->
+
+  <div class="section">
+
+    <h3>GitHub Publishing</h3>
+
+    <label for="token">
+      GitHub Fine-grained Token
+    </label>
+
+    <input
+      id="token"
+      type="password"
+      autocomplete="off"
+      placeholder="github_pat_..."
+    >
+
+    <div class="hint">
+      Token is used only for this request and is not saved.
+      Give it only the repository Contents → Read and write permission.
+    </div>
+
+
+    <button onclick="publishToGitHub()">
+      🚀 Publish to GitHub
+    </button>
+
+
+    <div
+      id="status"
+      class="status">
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+const OWNER = "mc-murmu";
+const REPO = "mc-murmu.github.io";
+const FILE = "script.js";
+
+const BRANCH = "main";
+
+let generatedEntry = null;
+
+
+/* --------------------------------
+   GET ELEMENT
+-------------------------------- */
+
+function $(id) {
+  return document.getElementById(id);
+}
+
+
+/* --------------------------------
+   GENERATE APK OBJECT
+-------------------------------- */
+
+function generateCode() {
+
+  const entry = {
+    name: $("name").value.trim(),
+    version: $("version").value.trim(),
+    category: $("category").value.trim(),
+    logo: $("logo").value.trim(),
+    description: $("description").value.trim(),
+    badge: $("badge").value,
+    download: $("download").value.trim()
+  };
+
+
+  if (!entry.name) {
+    alert("Enter the app name.");
+    return;
+  }
+
+
+  if (!entry.version) {
+    alert("Enter the version.");
+    return;
+  }
+
+
+  if (!entry.category) {
+    alert("Enter the category.");
+    return;
+  }
+
+
+  generatedEntry = entry;
+
+
+  const code = objectToJS(entry);
+
+  $("output").textContent = code;
+}
+
+
+/* --------------------------------
+   OBJECT → JAVASCRIPT
+-------------------------------- */
+
+function objectToJS(entry) {
+
+  return `{
+  name: ${JSON.stringify(entry.name)},
+  version: ${JSON.stringify(entry.version)},
+  category: ${JSON.stringify(entry.category)},
+  logo: ${JSON.stringify(entry.logo)},
+  description: ${JSON.stringify(entry.description)},
+  badge: ${JSON.stringify(entry.badge)},
+  download: ${JSON.stringify(entry.download)}
+}`;
+
+}
+
+
+/* --------------------------------
+   COPY
+-------------------------------- */
+
+async function copyCode() {
+
+  if (!generatedEntry) {
+    alert("Generate an entry first.");
+    return;
+  }
+
+  const code = objectToJS(generatedEntry);
+
+  await navigator.clipboard.writeText(code);
+
+  alert("Copied! ✅");
+}
+
+
+/* --------------------------------
+   STATUS
+-------------------------------- */
+
+function showStatus(message, type) {
+
+  const box = $("status");
+
+  box.textContent = message;
+
+  box.className = "status " + type;
+
+}
+
+
+/* --------------------------------
+   GITHUB API
+-------------------------------- */
+
+async function publishToGitHub() {
+
+  if (!generatedEntry) {
+    showStatus(
+      "Generate the APK entry first.",
+      "error"
+    );
+    return;
+  }
+
+
+  const token =
+    $("token").value.trim();
+
+
+  if (!token) {
+
+    showStatus(
+      "Enter your GitHub token.",
+      "error"
+    );
+
+    return;
+  }
+
+
+  showStatus(
+    "Reading script.js from GitHub...",
+    "success"
+  );
+
+
+  try {
+
+    /*
+      1. GET CURRENT script.js
+    */
+
+    const getURL =
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}?ref=${BRANCH}`;
+
+
+    const getResponse =
+      await fetch(getURL, {
+
+        headers: {
+          "Accept":
+            "application/vnd.github+json",
+
+          "Authorization":
+            `Bearer ${token}`,
+
+          "X-GitHub-Api-Version":
+            "2026-03-10"
+        }
+
+      });
+
+
+    if (!getResponse.ok) {
+
+      const error =
+        await getResponse.json();
+
+      throw new Error(
+        error.message ||
+        "Could not read script.js"
+      );
+
+    }
+
+
+    const fileData =
+      await getResponse.json();
+
+
+    /*
+      2. DECODE CURRENT FILE
+    */
+
+    const binary =
+      atob(fileData.content.replace(/\n/g, ""));
+
+    const bytes =
+      Uint8Array.from(
+        binary,
+        char => char.charCodeAt(0)
+      );
+
+    const currentScript =
+      new TextDecoder().decode(bytes);
+
+
+    /*
+      3. CREATE NEW ENTRY
+    */
+
+    const newEntry =
+      objectToJS(generatedEntry);
+
+
+    /*
+      4. INSERT BEFORE ];
+    */
+
+    const closing =
+      currentScript.lastIndexOf("];");
+
+
+    if (closing === -1) {
+
+      throw new Error(
+        "Could not find the apps array ending ]; in script.js"
+      );
+
+    }
+
+
+    const before =
+      currentScript.slice(0, closing);
+
+    const after =
+      currentScript.slice(closing);
+
+
+    /*
+      Avoid accidentally inserting
+      directly after another object
+    */
+
+    const separator =
+      before.trimEnd().endsWith("[")
+        ? "\n"
+        : ",\n";
+
+
+    const updatedScript =
+      before +
+      separator +
+      "  " +
+      newEntry.replace(/\n/g, "\n  ") +
+      "\n" +
+      after;
+
+
+    /*
+      5. ENCODE UPDATED FILE
+    */
+
+    const encodedBytes =
+      new TextEncoder().encode(updatedScript);
+
+    let binaryString = "";
+
+    encodedBytes.forEach(byte => {
+      binaryString += String.fromCharCode(byte);
+    });
+
+    const encodedContent =
+      btoa(binaryString);
+
+
+    /*
+      6. UPDATE script.js
+    */
+
+    showStatus(
+      "Publishing to GitHub...",
+      "success"
+    );
+
+
+    const putURL =
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FILE}`;
+
+
+    const putResponse =
+      await fetch(putURL, {
+
+        method: "PUT",
+
+        headers: {
+          "Accept":
+            "application/vnd.github+json",
+
+          "Authorization":
+            `Bearer ${token}`,
+
+          "Content-Type":
+            "application/json",
+
+          "X-GitHub-Api-Version":
+            "2026-03-10"
+        },
+
+        body: JSON.stringify({
+
+          message:
+            `Add ${generatedEntry.name}`,
+
+          content:
+            encodedContent,
+
+          sha:
+            fileData.sha,
+
+          branch:
+            BRANCH
+
+        })
+
+      });
+
+
+    const result =
+      await putResponse.json();
+
+
+    if (!putResponse.ok) {
+
+      throw new Error(
+        result.message ||
+        "GitHub rejected the update."
+      );
+
+    }
+
+
+    showStatus(
+      `✅ ${generatedEntry.name} published successfully! GitHub Pages will update shortly.`,
+      "success"
+    );
+
+
+    /*
+      Clear token from memory/input
+    */
+
+    $("token").value = "";
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+    showStatus(
+      "❌ " + error.message,
+      "error"
+    );
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
