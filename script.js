@@ -53,6 +53,15 @@ const apps = [
     description: "• Premium unlocked 💥\n• All regions unlocked \n• Safe & secure 🔐",
     badge: "Social",
     download: "https://www.mediafire.com/file/z1c5v6uuatxbjim/Pawxy_1.14.0%255Bby-bijay%255D.apk/file"
+  },
+  {
+    name: "Lightroom [ Premium ]",
+    version: "v11.5.0",
+    category: "Tools",
+    logo: "https://imgdb.in/i/gUH8cjXmGA.png",
+    description: "• Premium unlocked ✓\n• Optimize for higher Android version ✓\n• Safe & secure 🔐\n• Mod by Marang B4bu",
+    badge: "Popular",
+    download: "https://www.mediafire.com/file/ovf0law2s0gr2z7/Lightroom_11.5.0_%255BBY-BIJ4Y%255D.apk/file"
   }
 ];
 
