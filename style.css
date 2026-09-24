@@ -153,6 +153,28 @@ button,input{font:inherit}
   object-fit: cover;
   display: block;
 }
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socials svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.socials a:nth-child(2) svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.socials a:nth-child(2) svg circle:last-child {
+  fill: currentColor;
+  stroke: none;
+}
 .featured-logo{width:130px;height:130px;font-size:54px}.app-logo{width:64px;height:64px;border-radius:17px;font-size:30px}
 .logo-symbol{filter:drop-shadow(0 4px 7px rgba(0,0,0,.3))}
 .featured-title{font-size:20px;font-weight:800}.featured-title .badge{margin-left:7px}
