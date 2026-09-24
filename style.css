@@ -240,23 +240,17 @@ button,input{font:inherit}
 }
 .no-results{text-align:center;color:var(--muted);padding:25px;display:none}
 footer{
-  margin-top:55px;
-  border-top:1px solid var(--line);
-  padding:30px 5% 28px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:22px;
-  position:relative;
+  margin-top:55px;border-top:1px solid var(--line);padding:30px 5% 28px;
+  display:grid;grid-template-columns:1.2fr 1fr auto;align-items:center;gap:25px;position:relative
 }
 .footer-brand{display:flex;align-items:center;gap:12px}.footer-nav{display:flex;justify-content:center;gap:28px;color:#a9b5c9;font-size:12px}.socials{display:flex;gap:8px;justify-content:flex-end}
 .socials a{width:34px;height:34px;border-radius:9px;background:#17263e;display:grid;place-items:center;color:#dbe4f3}
 .copyright{
+  grid-column:1/-1;
   text-align:center;
   color:#718098;
   font-size:10px;
-  margin:0;
-  width:100%;
+  margin:0
 }
 .stay-updated{position:absolute;right:4%;bottom:17px;color:#cdd7e8;font-size:11px;font-style:italic;transform:rotate(-4deg)}
 .stay-updated span{display:block;width:72px;height:2px;background:#7759ff;margin-top:2px}
@@ -275,6 +269,9 @@ body.light .site-bg:after{opacity:.08}
   .featured-card .download{grid-column:1/-1;width:100%}.featured-title{font-size:16px}.featured-description{font-size:12px}
   .app-grid{grid-template-columns:repeat(2,1fr);gap:10px}.app-card{padding:12px}.app-logo{width:55px;height:55px;font-size:25px}
   .app-description{height:auto;min-height:38px}.section-heading h2{font-size:18px}
-  footer{grid-template-columns:1fr;text-align:center;padding-bottom:45px}.footer-brand{justify-content:center}.footer-nav{flex-wrap:wrap;gap:16px}.socials{justify-content:center}.stay-updated{right:50%;transform:translateX(50%) rotate(-4deg);bottom:9px}
+  footer{grid-template-columns:1fr;text-align:center;padding-bottom:45px}.footer-brand{justify-content:center}.footer-nav{flex-wrap:wrap;gap:16px}.socials{
+  display:flex;
+  gap:8px;
+  justify-content:flex-end
 }
 @media(max-width:420px){.app-grid{grid-template-columns:1fr}.app-card{display:grid;grid-template-columns:auto 1fr;gap:10px}.app-card .download{grid-column:1/-1}.app-info{margin-top:0}.app-description{grid-column:1/-1}}
