@@ -198,7 +198,17 @@ document.addEventListener("pointerdown", function(event) {
     const flower = document.createElement("span");
 
     flower.textContent =
-      flowers[Math.floor(Math.random() * flowers.length)];
+      flowers[Math.floor(Math.random() * flowers.length),
+  {
+    name: "Bijay Murmu",
+    version: "v3.8.6",
+    category: "Entertainment",
+    logo: "https://",
+    description: "Just for fun",
+    badge: "Popular",
+    download: "https://"
+  }
+];
 
     flower.style.position = "fixed";
     flower.style.left = event.clientX + "px";
