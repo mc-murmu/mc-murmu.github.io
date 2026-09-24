@@ -199,7 +199,7 @@ document.addEventListener("pointerdown", function(event) {
     const flower = document.createElement("span");
 
     flower.textContent =
-      flowers[Math.floor(Math.random() * flowers.length),
+      flowers[Math.floor(Math.random() * flowers.length)];
   
 
     flower.style.position = "fixed";
