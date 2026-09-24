@@ -315,6 +315,210 @@ renderApps();
 
 renderFeatured();
 
+        </div>
+
+      </div>
+
+
+      <div class="app-description">
+        ${app.description}
+      </div>
+
+
+      ${
+        app.download
+
+          ? `
+            <button
+              class="download"
+              type="button"
+              onclick="window.open('${app.download}', '_blank')"
+            >
+              ↓ &nbsp; Download
+            </button>
+          `
+
+          : `
+            <button
+              class="download"
+              type="button"
+              disabled
+            >
+              ⏳ &nbsp; Coming Soon
+            </button>
+          `
+      }
+
+    </article>
+
+  `).join("");
+
+
+  /* =========================================
+     NO RESULTS
+     ========================================= */
+
+  if (filtered.length === 0) {
+
+    noResults.style.display = "block";
+
+  } else {
+
+    noResults.style.display = "none";
+
+  }
+
+
+  /* =========================================
+     LOAD MORE BUTTON
+     ========================================= */
+
+  if (filtered.length > visibleCount) {
+
+    loadMore.style.display = "block";
+
+  } else {
+
+    loadMore.style.display = "none";
+
+  }
+
+}
+
+
+/* =========================================
+   FEATURED APP
+   ========================================= */
+
+function renderFeatured() {
+
+  if (!featuredApp || apps.length === 0) {
+    return;
+  }
+
+
+  const app = apps[0];
+
+
+  featuredApp.innerHTML = `
+
+    <article class="featured-card">
+
+      <div class="app-logo">
+
+        <img
+          src="${app.logo}"
+          alt="${app.name} logo"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        >
+
+      </div>
+
+
+      <div class="featured-info">
+
+        <span class="badge ${badgeClass(app.badge)}">
+          ${app.badge}
+        </span>
+
+
+        <h3>
+          ${app.name}
+        </h3>
+
+
+        <div class="app-meta">
+
+          ${app.version}
+
+          <span class="dot">•</span>
+
+          ${app.category}
+
+        </div>
+
+
+        <p>
+          ${app.description}
+        </p>
+
+
+        ${
+          app.download
+
+            ? `
+              <button
+                class="download"
+                type="button"
+                onclick="window.open('${app.download}', '_blank')"
+              >
+                ↓ &nbsp; Download
+              </button>
+            `
+
+            : `
+              <button
+                class="download"
+                type="button"
+                disabled
+              >
+                ⏳ &nbsp; Coming Soon
+              </button>
+            `
+        }
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================================
+   SEARCH
+   ========================================= */
+
+if (searchInput) {
+
+  searchInput.addEventListener("input", () => {
+
+    visibleCount = 8;
+
+    renderApps();
+
+  });
+
+}
+
+
+/* =========================================
+   LOAD MORE
+   ========================================= */
+
+if (loadMore) {
+
+  loadMore.addEventListener("click", () => {
+
+    visibleCount += 8;
+
+    renderApps();
+
+  });
+
+}
+
+
+/* =========================================
+   INITIAL RENDER
+   ========================================= */
+
+renderApps();
+
+renderFeatured();
+
 This version also fixes the incomplete ending and adds Featured APK rendering, while preserving your existing search and “Coming Soon” behavior.
 
 One important point: your "Movie Box" and "YouTube Premium" entries currently have "download: """, so both will correctly show Coming Soon until you put their download links there.
