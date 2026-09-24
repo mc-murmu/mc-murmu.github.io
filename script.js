@@ -9,22 +9,22 @@ const apps = [
     download: ""
   },
 
-{
-  name: "YouTube Premium",
-  version: "21.36.12",
-  category: "Media",
-  logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
-  description: "Enjoy YouTube with fewer interruptions, background playback, and a smoother viewing experience.",
-  badge: "Popular",
-  download: ""
-}
-  
+  {
+    name: "YouTube Premium",
+    version: "21.36.12",
+    category: "Media",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
+    description: "Enjoy YouTube with fewer interruptions, background playback, and a smoother viewing experience.",
+    badge: "Popular",
+    download: ""
+  }
 ];
 
 
 const grid = document.getElementById("appGrid");
 const searchInput = document.getElementById("searchInput");
 const noResults = document.getElementById("noResults");
+const loadMore = document.getElementById("loadMore");
 
 let visibleCount = 8;
 
@@ -39,6 +39,7 @@ function badgeClass(badge) {
 
 
 function renderApps() {
+
   const q = searchInput.value.trim().toLowerCase();
 
   const filtered = apps.filter(app =>
@@ -69,6 +70,7 @@ function renderApps() {
 
       </div>
 
+
       <div class="app-info">
 
         <div class="app-name">
@@ -83,17 +85,22 @@ function renderApps() {
 
       </div>
 
+
       <div class="app-description">
         ${app.description}
       </div>
 
+
       ${
         app.download
-          ? `<button class="download"
+          ? `<button
+               class="download"
                onclick="window.open('${app.download}', '_blank')">
                ↓ &nbsp; Download
              </button>`
-          : `<button class="download" disabled>
+          : `<button
+               class="download"
+               disabled>
                ⏳ &nbsp; Coming Soon
              </button>`
       }
@@ -101,14 +108,72 @@ function renderApps() {
     </article>
   `).join("");
 
+
   noResults.style.display =
     filtered.length ? "none" : "block";
 
-  document.getElementById("loadMore").style.display =
+
+  loadMore.style.display =
     filtered.length > visibleCount ? "block" : "none";
 }
 
 
+function renderFeatured() {
+
+  const featuredBox =
+    document.getElementById("featuredApp");
+
+  featuredBox.innerHTML = `
+    <div class="no-featured">
+      No featured APK yet.
+    </div>
+  `;
+}
+
+
+loadMore.addEventListener("click", () => {
+
+  visibleCount += 4;
+
+  renderApps();
+
+});
+
+
+searchInput.addEventListener("input", () => {
+
+  visibleCount = 8;
+
+  renderApps();
+
+});
+
+
+document.querySelector(".theme-toggle").addEventListener("click", () => {
+
+  document.body.classList.toggle("light");
+
+  document.querySelector(".theme-toggle").textContent =
+    document.body.classList.contains("light")
+      ? "☀"
+      : "☾";
+
+});
+
+
+document.querySelector(".search-toggle").addEventListener("click", () => {
+
+  searchInput.focus();
+
+  document.querySelector(".hero").scrollIntoView({
+    behavior: "smooth"
+  });
+
+});
+
+
+renderFeatured();
+renderApps();
 function renderFeatured() {
   const featuredBox = document.getElementById("featuredApp");
 
