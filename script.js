@@ -1,6 +1,6 @@
 const apps = [
   {
-    name: "Movie Box",
+    name: "Movie Box pro",
     version: "90020126",
     category: "Entertainment",
     logo: "https://imgdb.in/i/gTP4p50STC.png",
@@ -28,7 +28,7 @@ const apps = [
     download: "https://www.mediafire.com/file/i167y6s90rp83kx/microG_Services_0.3.13.2.250932.apk/file"
   },
   {
-    name: "NetPlay",
+    name: "NetPlay premium",
     version: "v0.4.86",
     category: "Entertainment",
     logo: "https://imgdb.in/i/gTRMyeKE6Y.webp",
@@ -186,6 +186,58 @@ document.querySelector(".search-toggle").addEventListener("click", () => {
   document.querySelector(".hero").scrollIntoView({
     behavior: "smooth"
   });
+
+});
+document.addEventListener("pointerdown", function(event) {
+
+  const flowers = ["🌸", "🌺", "🌼", "🌷", "💮"];
+  const count = 10;
+
+  for (let i = 0; i < count; i++) {
+
+    const flower = document.createElement("span");
+
+    flower.textContent =
+      flowers[Math.floor(Math.random() * flowers.length)];
+
+    flower.style.position = "fixed";
+    flower.style.left = event.clientX + "px";
+    flower.style.top = event.clientY + "px";
+    flower.style.pointerEvents = "none";
+    flower.style.fontSize = (14 + Math.random() * 12) + "px";
+    flower.style.zIndex = "9999";
+
+    document.body.appendChild(flower);
+
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 40 + Math.random() * 80;
+
+    const x = Math.cos(angle) * distance;
+    const y = Math.sin(angle) * distance;
+
+    flower.animate(
+      [
+        {
+          transform: "translate(-50%, -50%) scale(0.3)",
+          opacity: 1
+        },
+        {
+          transform:
+            `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1)`,
+          opacity: 0
+        }
+      ],
+      {
+        duration: 1800,
+        easing: "cubic-bezier(.2,.8,.3,1)"
+      }
+    );
+
+    setTimeout(() => {
+      flower.remove();
+    }, 1800);
+
+  }
 
 });
 
