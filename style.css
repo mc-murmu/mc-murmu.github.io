@@ -1,908 +1,214 @@
-/* =========================================
-   SECTION HEADING
-   ========================================= */
-
-.section-heading a{
-  color:#8ea4c5;
-  font-size:13px;
-  transition:.2s ease;
+*{box-sizing:border-box}
+:root{
+  --bg:#050d1b;
+  --bg2:#081326;
+  --panel:rgba(13,27,48,.76);
+  --panel2:#0d1a2e;
+  --line:rgba(116,153,205,.22);
+  --text:#edf3ff;
+  --muted:#9eacc4;
+  --purple:#7650ff;
+  --purple2:#9b5cff;
+  --cyan:#10d7ff;
+  --green:#17d78b;
+  --shadow:0 18px 50px rgba(0,0,0,.28);
 }
-
-.section-heading a:hover{
-  color:#a98aff;
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  overflow-x:hidden;
 }
-
-.star{
-  color:#ffd45c;
-  margin-right:7px;
+body.light{
+  --bg:#edf3fb;--bg2:#f7faff;--panel:rgba(255,255,255,.82);
+  --panel2:#fff;--line:rgba(46,75,112,.18);--text:#122039;--muted:#61708a;
 }
-
-.fire{
-  color:#ff7b4a;
-  margin-right:7px;
+.site-bg{
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(circle at 73% 19%,rgba(69,75,255,.14),transparent 28%),
+    radial-gradient(circle at 14% 43%,rgba(0,211,255,.07),transparent 25%),
+    linear-gradient(135deg,var(--bg),var(--bg2));
 }
-
-
-/* =========================================
-   APP GRID
-   ========================================= */
-
-.app-grid{
+.site-bg:after{
+  content:"";position:absolute;inset:0;opacity:.17;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.topbar{
+  height:82px;padding:0 5%;display:flex;align-items:center;gap:40px;
+  border-bottom:1px solid var(--line);background:rgba(5,13,27,.55);
+  backdrop-filter:blur(18px);position:sticky;top:0;z-index:20;
+}
+.brand{display:flex;align-items:center;gap:12px;min-width:250px}
+.brand-mark{
+  width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+  color:#bba7ff;font-size:29px;transform:rotate(180deg);
+  background:linear-gradient(145deg,#202a67,#0e1932);
+  box-shadow:0 0 24px rgba(118,80,255,.2);
+}
+.brand-name{font-size:22px;font-weight:800;letter-spacing:-.5px}
+.brand-name span{color:#865eff}
+.brand-sub{font-size:10px;color:var(--muted);margin-top:1px}
+.nav{display:flex;align-items:center;gap:34px;margin:auto}
+.nav a{color:#c7d2e7;font-size:14px;padding:30px 2px;position:relative}
+.nav a.active{color:#9c7cff}
+.nav a.active:after{content:"";height:2px;left:0;right:0;bottom:19px;position:absolute;background:#7650ff;box-shadow:0 0 12px #7650ff}
+.header-actions{display:flex;gap:10px}
+.icon-btn{
+  border:1px solid var(--line);background:rgba(19,35,61,.72);color:var(--text);
+  width:44px;height:38px;border-radius:22px;cursor:pointer;font-size:20px;
+}
+.hero{
+  min-height:390px;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;
+  padding:58px 5% 46px;max-width:1400px;margin:auto;
+}
+.eyebrow{color:#5eb8ff;font-size:15px;font-weight:800;letter-spacing:.4px}
+.hero h1{font-size:45px;line-height:1.12;margin:12px 0 14px;letter-spacing:-1.7px}
+.hero h1 span{
+  background:linear-gradient(90deg,#a55cff,#09d8ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{max-width:560px;color:#bdc9dd;line-height:1.6;margin:0 0 22px}
+.search-box{
+  height:47px;max-width:540px;border:1px solid #344a6a;border-radius:28px;
+  display:flex;align-items:center;gap:13px;padding:0 18px;background:rgba(13,28,49,.75);
+  box-shadow:inset 0 0 25px rgba(69,104,155,.04);
+}
+.search-box span{font-size:26px;color:#cbd8ef;line-height:0}
+.search-box input{border:0;outline:0;background:transparent;color:var(--text);width:100%}
+.search-box input::placeholder{color:#8b9ab3}
+.hero-art{display:flex;align-items:center;justify-content:center;gap:28px}
+.android-orb{position:relative;width:280px;height:255px;filter:drop-shadow(0 25px 30px rgba(0,0,0,.45))}
+.android-head{
+  position:absolute;width:132px;height:84px;left:72px;top:27px;border-radius:65px 65px 30px 30px;
+  background:linear-gradient(145deg,#2bf09a,#00a968);box-shadow:inset -12px -10px 20px rgba(0,0,0,.18);
+}
+.android-head:before,.android-head:after{content:"";position:absolute;width:3px;height:24px;background:#21d88f;top:-18px}
+.android-head:before{left:34px;transform:rotate(-28deg)}.android-head:after{right:34px;transform:rotate(28deg)}
+.android-head i{position:absolute;width:9px;height:9px;background:#d8fff1;border-radius:50%;top:32px}
+.android-head i:first-child{left:38px}.android-head i:nth-child(2){right:38px}
+.android-body{
+  position:absolute;width:150px;height:116px;left:63px;top:91px;border-radius:12px 12px 42px 42px;
+  background:linear-gradient(145deg,#1be58f,#009b62);box-shadow:inset -14px -12px 25px rgba(0,0,0,.2)
+}
+.apk-cube{
+  position:absolute;left:29px;top:25px;width:93px;height:96px;border:2px solid #15bfff;border-radius:9px;
+  background:linear-gradient(145deg,#101f55,#0b0e28);box-shadow:0 12px 25px rgba(0,0,0,.45);
+  transform:perspective(300px) rotateX(-3deg);display:flex;flex-direction:column;align-items:center;justify-content:center
+}
+.apk-cube strong{font-size:40px;color:#8c6bff;line-height:.8}.apk-cube span{font-weight:800;color:#8f75ff;margin-top:8px}
+.hero-benefits{display:flex;flex-direction:column;gap:12px}
+.hero-benefits div{
+  min-width:145px;padding:11px 15px;border:1px solid #21405d;border-radius:12px;
+  background:rgba(9,22,41,.72);color:#81a5cc;font-size:13px
+}
+.hero-benefits span{color:#dce6f7;margin-left:7px}
+.section{padding:20px 5%;max-width:1400px;margin:auto}
+.section-heading{display:flex;align-items:center;justify-content:space-between;margin:12px 0 18px}
+.section-heading h2{margin:0;font-size:21px;letter-spacing:-.4px}
+.section-heading a{color:#8f70ff;font-size:13px}
+.heading-icon{color:#8a5dff;margin-right:8px}.star{color:#ffd52d;margin-right:8px}.fire{color:#ff4f78;margin-right:8px}
+.categories{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.app-card{
-  position:relative;
-  min-width:0;
-  padding:18px;
-
-  border:1px solid var(--line);
-  border-radius:18px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(18,35,61,.82),
-      rgba(8,19,36,.82)
-    );
-
-  box-shadow:var(--shadow);
-
-  transition:
-    transform .25s ease,
-    border-color .25s ease,
-    box-shadow .25s ease;
-}
-
-.app-card:hover{
-  transform:translateY(-5px);
-  border-color:rgba(118,80,255,.42);
-  box-shadow:
-    0 20px 45px rgba(0,0,0,.32),
-    0 0 25px rgba(118,80,255,.08);
-}
-
-
-/* =========================================
-   APP TOP
-   ========================================= */
-
-.app-top{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.app-logo{
-  width:62px;
-  height:62px;
-
-  display:grid;
-  place-items:center;
-
-  overflow:hidden;
-
-  border-radius:16px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #16294a,
-      #0b162b
-    );
-
-  border:1px solid rgba(255,255,255,.08);
-
-  flex-shrink:0;
-}
-
-.app-logo img{
-  width:100%;
-  height:100%;
-  display:block;
-
-  object-fit:cover;
-}
-
-
-/* =========================================
-   BADGES
-   ========================================= */
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-
-  min-height:25px;
-  padding:4px 9px;
-
-  border-radius:20px;
-
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.2px;
-
-  color:#bba8ff;
-
-  background:rgba(118,80,255,.13);
-  border:1px solid rgba(118,80,255,.25);
-}
-
-.badge.popular{
-  color:#72e7ff;
-  background:rgba(16,215,255,.09);
-  border-color:rgba(16,215,255,.2);
-}
-
-.badge.trending{
-  color:#ffb16e;
-  background:rgba(255,132,66,.1);
-  border-color:rgba(255,132,66,.22);
-}
-
-
-/* =========================================
-   APP INFO
-   ========================================= */
-
-.app-info{
-  margin-top:15px;
-}
-
-.app-name{
-  font-size:17px;
-  font-weight:800;
-  letter-spacing:-.3px;
-
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.app-meta{
-  display:flex;
-  align-items:center;
-  gap:7px;
-
-  margin-top:5px;
-
-  color:#8193ad;
-  font-size:11px;
-}
-
-.dot{
-  color:#536983;
-}
-
-.app-description{
-  min-height:60px;
-
-  margin-top:12px;
-
-  color:#9eacc4;
-  font-size:12px;
-  line-height:1.55;
-}
-
-
-/* =========================================
-   DOWNLOAD BUTTON
-   ========================================= */
-
-.download{
-  width:100%;
-  height:40px;
-
-  margin-top:14px;
-
-  border:1px solid rgba(118,80,255,.3);
-  border-radius:11px;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(118,80,255,.17),
-      rgba(16,215,255,.08)
-    );
-
-  color:#dfe8ff;
-
-  font-size:12px;
-  font-weight:700;
-
-  cursor:pointer;
-
-  transition:
-    transform .2s ease,
-    background .2s ease,
-    border-color .2s ease;
-}
-
-.download:hover:not(:disabled){
-  transform:translateY(-2px);
-
-  border-color:rgba(118,80,255,.6);
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(118,80,255,.27),
-      rgba(16,215,255,.14)
-    );
-}
-
-.download:disabled{
-  cursor:not-allowed;
-  opacity:.55;
-}
-
-
-/* =========================================
-   FEATURED APK
-   ========================================= */
-
-.featured-card{
-  display:flex;
-  align-items:center;
-  gap:25px;
-
-  padding:24px;
-
-  border:1px solid var(--line);
-  border-radius:20px;
-
-  background:
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(118,80,255,.13),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      rgba(17,34,59,.88),
-      rgba(7,17,32,.88)
-    );
-
-  box-shadow:var(--shadow);
-
-  overflow:hidden;
-}
-
-.featured-card .app-logo{
-  width:92px;
-  height:92px;
-  border-radius:22px;
-}
-
-.featured-info{
-  flex:1;
-  min-width:0;
-}
-
-.featured-info h3{
-  margin:9px 0 3px;
-
-  font-size:22px;
-  letter-spacing:-.5px;
-}
-
-.featured-info p{
-  max-width:700px;
-
-  margin:10px 0 0;
-
-  color:var(--muted);
-
-  font-size:13px;
-  line-height:1.6;
-}
-
-.featured-info .download{
-  width:auto;
-  min-width:145px;
-  padding:0 18px;
-}
-
-
-/* =========================================
-   LOAD MORE
-   ========================================= */
-
-.load-more{
-  display:block;
-
-  margin:25px auto 10px;
-
-  min-width:145px;
-  height:42px;
-
-  padding:0 20px;
-
-  border:1px solid var(--line);
-  border-radius:12px;
-
-  background:rgba(14,28,49,.7);
-
-  color:#b7c7df;
-
-  font-size:12px;
-  font-weight:700;
-
-  cursor:pointer;
-
-  transition:.2s ease;
-}
-
-.load-more:hover{
-  color:#fff;
-
-  border-color:rgba(118,80,255,.45);
-
-  background:rgba(118,80,255,.12);
-
-  transform:translateY(-2px);
-}
-
-
-/* =========================================
-   NO RESULTS
-   ========================================= */
-
-.no-results{
-  display:none;
-
-  padding:35px 20px;
-
-  text-align:center;
-
-  color:var(--muted);
-
-  font-size:13px;
-}
-
-
-/* =========================================
-   FOOTER
-   ========================================= */
-
-footer{
-  margin-top:70px;
-
-  padding:45px 5% 28px;
-
-  border-top:1px solid var(--line);
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(7,16,31,.5),
-      rgba(4,10,20,.9)
-    );
-
-  text-align:center;
-}
-
-.footer-brand{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  grid-template-columns:repeat(6,minmax(0,1fr));
   gap:12px;
-}
-
-.footer-brand .brand-mark{
-  flex-shrink:0;
-}
-
-.footer-brand .brand-name{
-  text-align:left;
-}
-
-.footer-brand .brand-sub{
-  text-align:left;
-}
-
-
-/* =========================================
-   FOOTER NAV
-   ========================================= */
-
-.footer-nav{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:25px;
-
-  margin:25px 0 20px;
-}
-
-.footer-nav a{
-  color:#91a2bc;
-  font-size:12px;
-
-  transition:.2s ease;
-}
-
-.footer-nav a:hover{
-  color:#a98aff;
-}
-
-
-/* =========================================
-   SOCIAL SVG ICONS
-   ========================================= */
-
-.socials{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:11px;
-
-  margin:20px 0;
-}
-
-.socials a{
-  width:42px;
-  height:42px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border:1px solid var(--line);
-  border-radius:12px;
-
-  background:rgba(14,28,49,.65);
-
-  color:#9fb2ce;
-
-  transition:
-    transform .25s ease,
-    color .25s ease,
-    background .25s ease,
-    border-color .25s ease,
-    box-shadow .25s ease;
-}
-
-.socials a svg{
-  width:19px;
-  height:19px;
-
-  display:block;
-}
-
-.socials a:hover{
-  transform:translateY(-3px);
-
-  color:#fff;
-
-  border-color:rgba(118,80,255,.5);
-
-  background:rgba(118,80,255,.13);
-
-  box-shadow:0 8px 25px rgba(0,0,0,.2);
-}
-
-
-/* =========================================
-   LINK SECTION
-   ========================================= */
-
-.link-section{
-  width:min(100%,430px);
-
-  margin:20px auto 25px;
-
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.link-section a{
   width:100%;
-  min-height:48px;
-
-  padding:12px 16px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  border:1px solid var(--line);
-  border-radius:13px;
-
-  background:rgba(14,28,49,.58);
-
-  color:#c6d3e8;
-
-  font-size:12px;
-  font-weight:600;
-
-  transition:
-    transform .2s ease,
-    background .2s ease,
-    border-color .2s ease,
-    box-shadow .2s ease;
 }
 
-.link-section a span:last-child{
-  color:#7185a2;
-
-  transition:
-    transform .2s ease,
-    color .2s ease;
-}
-
-.link-section a:hover{
-  transform:translateY(-2px);
-
-  background:rgba(118,80,255,.09);
-
-  border-color:rgba(118,80,255,.38);
-
-  box-shadow:0 8px 25px rgba(0,0,0,.15);
-}
-
-.link-section a:hover span:last-child{
-  color:#b79cff;
-
-  transform:translate(3px,-3px);
-}
-
-
-/* =========================================
-   STAY UPDATED
-   ========================================= */
-
-.stay-updated{
+.category{
+  min-width:0;
+  width:100%;
+  height:54px;
+  border:1px solid #25405e;
+  border-radius:15px;
+  background:rgba(15,29,50,.7);
+  color:#d8e2f3;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:8px;
-
-  margin:25px 0 8px;
-
-  color:#9baac0;
-
-  font-size:11px;
-  font-weight:500;
-
-  opacity:.75;
+  gap:10px;
+  cursor:pointer;
+  transition:.2s transform,.2s border,.2s background;
+  white-space:nowrap;
 }
-
-.stay-updated span{
-  width:6px;
-  height:6px;
-
-  display:block;
-
-  border-radius:50%;
-
-  background:#7650ff;
-
-  box-shadow:0 0 10px rgba(118,80,255,.7);
-
-  animation:stayPulse 1.8s ease-in-out infinite;
+.category:hover{transform:translateY(-2px);border-color:#6c56df}
+.category.active{border-color:#7a55ff;background:linear-gradient(135deg,rgba(118,80,255,.22),rgba(25,44,72,.72));box-shadow:0 0 24px rgba(118,80,255,.08)}
+.category .cat-icon{font-size:20px}.category small{color:#8998af}
+.featured-card{
+  display:grid;grid-template-columns:140px 1fr auto;align-items:center;gap:25px;
+  padding:24px;border:1px solid #294363;border-radius:16px;background:linear-gradient(110deg,rgba(13,29,51,.86),rgba(10,23,41,.65));
+  box-shadow:var(--shadow)
 }
-
-@keyframes stayPulse{
-  0%,100%{
-    opacity:.35;
-    transform:scale(.8);
-  }
-
-  50%{
-    opacity:1;
-    transform:scale(1);
-  }
+.featured-logo,.app-logo{
+  display:grid;place-items:center;overflow:hidden;border-radius:21px;
+  background:linear-gradient(145deg,#06182b,#162c48);border:1px solid #1669a2;
 }
-
-
-/* =========================================
-   COPYRIGHT
-   ========================================= */
-
-.copyright{
-  margin:7px 0 0;
-
-  color:#718198;
-
-  font-size:10px;
-
-  line-height:1.5;
-
-  opacity:.7;
+.app-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-
-
-/* =========================================
-   LIGHT MODE
-   ========================================= */
-
-body.light .topbar{
-  background:rgba(237,243,251,.72);
+.featured-logo{width:130px;height:130px;font-size:54px}.app-logo{width:64px;height:64px;border-radius:17px;font-size:30px}
+.logo-symbol{filter:drop-shadow(0 4px 7px rgba(0,0,0,.3))}
+.featured-title{font-size:20px;font-weight:800}.featured-title .badge{margin-left:7px}
+.meta{font-size:13px;color:#bac7db;margin:8px 0}.dot{margin:0 7px;color:#536987}
+.description{color:#bac7db;font-size:13px;line-height:1.55;margin:0 0 11px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}.tag{
+  padding:5px 9px;border-radius:12px;background:#172a44;border:1px solid #284565;color:#b8c8df;font-size:10px
 }
-
-body.light .app-card,
-body.light .featured-card{
-  background:rgba(255,255,255,.82);
+.download{
+  border:0;border-radius:10px;background:linear-gradient(90deg,#6040f0,#7844ff);
+  color:#fff;padding:12px 22px;cursor:pointer;font-weight:700;box-shadow:0 8px 25px rgba(102,66,255,.2)
 }
-
-body.light .search-box{
-  background:rgba(255,255,255,.75);
+.download:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.badge{
+  display:inline-block;font-size:10px;font-weight:800;padding:5px 8px;border-radius:6px;background:#22d889;color:#031a11
 }
-
-body.light .hero-benefits div{
-  background:rgba(255,255,255,.7);
+.badge.popular{background:#ff4c83;color:#fff}.badge.trending{background:#369cf2;color:#fff}.badge.featured{background:#66521a;color:#ffe46d}
+.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.app-card{
+  min-width:0;padding:17px;border:1px solid #243b5b;border-radius:14px;background:rgba(12,27,47,.77);
+  box-shadow:0 10px 30px rgba(0,0,0,.12);transition:.22s transform,.22s border;
 }
-
-body.light .socials a,
-body.light .link-section a{
-  background:rgba(255,255,255,.65);
+.app-card:hover{transform:translateY(-4px);border-color:#5368a0}
+.app-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.app-info{margin-top:12px}.app-name{font-weight:800;font-size:14px}.app-meta{font-size:11px;color:#91a0b8;margin-top:5px}
+.app-description{height:38px;color:#9daac0;font-size:11px;line-height:1.45;margin:9px 0 12px}
+.app-card .download{width:100%;font-size:12px;padding:9px}
+.load-more{
+  display:block;margin:28px auto 8px;border:1px solid #7a70b4;color:#dce3f3;background:transparent;
+  padding:10px 24px;border-radius:18px;cursor:pointer
 }
-
-body.light footer{
-  background:rgba(237,243,251,.7);
+.no-results{text-align:center;color:var(--muted);padding:25px;display:none}
+footer{
+  margin-top:55px;border-top:1px solid var(--line);padding:30px 5% 28px;
+  display:grid;grid-template-columns:1.2fr 1fr auto;align-items:center;gap:25px;position:relative
 }
+.footer-brand{display:flex;align-items:center;gap:12px}.footer-nav{display:flex;justify-content:center;gap:28px;color:#a9b5c9;font-size:12px}.socials{display:flex;gap:8px;justify-content:flex-end}
+.socials a{width:34px;height:34px;border-radius:9px;background:#17263e;display:grid;place-items:center;color:#dbe4f3}
+.copyright{grid-column:1/-1;text-align:center;color:#718098;font-size:10px;margin:0}
+.stay-updated{position:absolute;right:4%;bottom:17px;color:#cdd7e8;font-size:11px;font-style:italic;transform:rotate(-4deg)}
+.stay-updated span{display:block;width:72px;height:2px;background:#7759ff;margin-top:2px}
+body.light .topbar{background:rgba(237,243,251,.75)}
+body.light .site-bg:after{opacity:.08}
 
-
-/* =========================================
-   TABLET
-   ========================================= */
-
-@media (max-width:1050px){
-
-  .app-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-  }
-
-  .hero-art{
-    justify-content:flex-start;
-  }
-
+@media(max-width:1000px){
+  .nav{gap:18px}.nav a span{display:none}.brand{min-width:auto}.hero{grid-template-columns:1fr}.hero-art{display:none}.app-grid{grid-template-columns:repeat(2,1fr)}
 }
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width:700px){
-
-  .topbar{
-    height:70px;
-
-    padding:0 18px;
-
-    gap:15px;
-  }
-
-  .brand{
-    min-width:0;
-    flex:1;
-  }
-
-  .brand-name{
-    font-size:18px;
-  }
-
-  .brand-sub{
-    font-size:8px;
-  }
-
-  .brand-mark{
-    width:34px;
-    height:34px;
-    font-size:25px;
-  }
-
-  .nav{
-    display:none;
-  }
-
-  .header-actions{
-    gap:6px;
-  }
-
-  .icon-btn{
-    width:39px;
-    height:35px;
-  }
-
-
-  .hero{
-    min-height:auto;
-
-    padding:42px 18px 35px;
-
-    display:block;
-  }
-
-  .hero h1{
-    font-size:36px;
-    letter-spacing:-1.3px;
-  }
-
-  .hero p{
-    font-size:13px;
-  }
-
-  .search-box{
-    width:100%;
-  }
-
-  .hero-art{
-    margin-top:35px;
-
-    justify-content:center;
-
-    gap:15px;
-  }
-
-  .android-orb{
-    transform:scale(.82);
-    margin-right:-20px;
-  }
-
-  .hero-benefits{
-    gap:8px;
-  }
-
-  .hero-benefits div{
-    min-width:125px;
-    padding:9px 10px;
-
-    font-size:11px;
-  }
-
-
-  .section{
-    padding:18px;
-  }
-
-  .section-heading{
-    margin-top:8px;
-  }
-
-  .section-heading h2{
-    font-size:18px;
-  }
-
-
-  .app-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-  }
-
-  .app-card{
-    padding:14px;
-    border-radius:15px;
-  }
-
-  .app-logo{
-    width:54px;
-    height:54px;
-    border-radius:14px;
-  }
-
-  .app-name{
-    font-size:14px;
-  }
-
-  .app-description{
-    min-height:72px;
-    font-size:11px;
-  }
-
-  .badge{
-    font-size:9px;
-    padding:3px 7px;
-  }
-
-  .download{
-    height:38px;
-    font-size:11px;
-  }
-
-
-  .featured-card{
-    padding:17px;
-
-    gap:15px;
-
-    border-radius:17px;
-  }
-
-  .featured-card .app-logo{
-    width:70px;
-    height:70px;
-    border-radius:17px;
-  }
-
-  .featured-info h3{
-    font-size:18px;
-  }
-
-  .featured-info p{
-    font-size:11px;
-  }
-
-  .featured-info .download{
-    min-width:125px;
-  }
-
-
-  footer{
-    margin-top:45px;
-    padding:38px 18px 25px;
-  }
-
-  .footer-nav{
-    gap:20px;
-  }
-
-  .link-section{
-    width:100%;
-  }
-
+@media(max-width:700px){
+  .topbar{height:68px;padding:0 16px;gap:10px}.brand-name{font-size:18px}.brand-sub{font-size:8px}
+  .brand-mark{width:34px;height:34px}.nav{display:none}.header-actions{margin-left:auto}
+  .hero{padding:42px 18px 25px;min-height:0}.hero h1{font-size:35px}.hero p{font-size:13px}
+  .section{padding:15px 16px}.categories{display:flex;overflow:auto;padding-bottom:4px}.category{min-width:112px;height:48px}
+  .featured-card{grid-template-columns:70px 1fr;padding:15px;gap:14px}.featured-logo{width:70px;height:70px;font-size:30px}
+  .featured-card .download{grid-column:1/-1;width:100%}.featured-title{font-size:16px}.featured-description{font-size:12px}
+  .app-grid{grid-template-columns:repeat(2,1fr);gap:10px}.app-card{padding:12px}.app-logo{width:55px;height:55px;font-size:25px}
+  .app-description{height:auto;min-height:38px}.section-heading h2{font-size:18px}
+  footer{grid-template-columns:1fr;text-align:center;padding-bottom:45px}.footer-brand{justify-content:center}.footer-nav{flex-wrap:wrap;gap:16px}.socials{justify-content:center}.stay-updated{right:50%;transform:translateX(50%) rotate(-4deg);bottom:9px}
 }
-
-
-/* =========================================
-   SMALL PHONES
-   ========================================= */
-
-@media (max-width:430px){
-
-  .hero h1{
-    font-size:31px;
-  }
-
-  .hero-art{
-    gap:2px;
-  }
-
-  .android-orb{
-    transform:scale(.7);
-    margin-right:-45px;
-  }
-
-  .hero-benefits div{
-    min-width:112px;
-    font-size:10px;
-    padding:8px;
-  }
-
-  .app-grid{
-    gap:10px;
-  }
-
-  .app-card{
-    padding:12px;
-  }
-
-  .app-logo{
-    width:48px;
-    height:48px;
-  }
-
-  .app-description{
-    min-height:82px;
-  }
-
-  .featured-card{
-    align-items:flex-start;
-  }
-
-  .featured-card .app-logo{
-    width:60px;
-    height:60px;
-  }
-
-}
+@media(max-width:420px){.app-grid{grid-template-columns:1fr}.app-card{display:grid;grid-template-columns:auto 1fr;gap:10px}.app-card .download{grid-column:1/-1}.app-info{margin-top:0}.app-description{grid-column:1/-1}}
