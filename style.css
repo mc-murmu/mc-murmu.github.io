@@ -193,7 +193,7 @@ button,input{font:inherit}
 .logo-symbol{filter:drop-shadow(0 4px 7px rgba(0,0,0,.3))}
 .featured-title{font-size:20px;font-weight:800}.featured-title .badge{margin-left:7px}
 .meta{font-size:13px;color:#bac7db;margin:8px 0}.dot{margin:0 7px;color:#536987}
-.description{color:#bac7db;font-size:13px;line-height:1.55;margin:0 0 11px}
+.description{color:#bac7db;font-size:15px;line-height:1.55;margin:0 0 11px}
 .tags{display:flex;flex-wrap:wrap;gap:7px}.tag{
   padding:5px 9px;border-radius:12px;background:#172a44;border:1px solid #284565;color:#b8c8df;font-size:10px
 }
