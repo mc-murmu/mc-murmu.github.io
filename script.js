@@ -11,15 +11,15 @@ const apps = [
 
   {
     name: "YouTube Premium",
-    version: "21.36.12",
-    category: "Media",
+    version: "v6.23.53.3",
+    category: "media",
     logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
     description: "Enjoy YouTube with fewer interruptions, background playback, and a smoother viewing experience.",
-    badge: "Popular",
+    badge: "new",
     download: "https://www.mediafire.com/file/afkf84lxjf18o5p/YouTube_Premium_21.10.493_clone.apk/file"
   },
   {
-    name: "YouTube Premium",
+    name: "Micro G",
     version: "21.36.12",
     category: "Media",
     logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
