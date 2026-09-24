@@ -8,6 +8,17 @@ const apps = [
     badge: "New",
     download: ""
   }
+
+{
+  name: "YouTube Premium",
+  version: "21.36.12",
+  category: "Media",
+  logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
+  description: "Enjoy YouTube with fewer interruptions, background playback, and a smoother viewing experience.",
+  badge: "Popular",
+  download: ""
+}
+  
 ];
 
 
