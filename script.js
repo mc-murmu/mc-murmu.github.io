@@ -3,7 +3,7 @@ const apps = [
     name: "Movie Box",
     version: "90020126",
     category: "Entertainment",
-    logo: "https://imgdb.in/i/gKk4IUvZRK.jpg",
+    logo: "https://imgdb.in/i/gTP4p50STC.png",
     description: "Watch movies free without spending a penny.",
     badge: "New",
     download: "https://www.mediafire.com/file/mfbh8wh0vx6133m/MovieBox_4_%255BBY-BIJAY%255D.apk/file"
@@ -13,7 +13,7 @@ const apps = [
     name: "YouTube Premium",
     version: "v6.23.53.3",
     category: "media",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
+    logo: "https://imgdb.in/i/gTPaHnsJBC.png",
     description: "Enjoy YouTube with fewer interruptions, background playback, and a smoother viewing experience.",
     badge: "popular",
     download: "https://www.mediafire.com/file/afkf84lxjf18o5p/YouTube_Premium_21.10.493_clone.apk/file"
@@ -22,7 +22,7 @@ const apps = [
     name: "Micro G",
     version: "v21.36.12",
     category: "Media",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg",
+    logo: "https://imgdb.in/i/gTPdlzQhFu.png",
     description: "Extra for YouTube premium. app required for account login 🔥.",
     badge: "Popular",
     download: "https://www.mediafire.com/file/i167y6s90rp83kx/microG_Services_0.3.13.2.250932.apk/file"
