@@ -7,7 +7,7 @@ const apps = [
     description: "Watch movies free without spending a penny.",
     badge: "New",
     download: ""
-  }
+  },
 
 {
   name: "YouTube Premium",
