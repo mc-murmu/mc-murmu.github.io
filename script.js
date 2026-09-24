@@ -10,43 +10,12 @@ const apps = [
   }
 ];
 
-const featured = null;
-
-const categories = [
-  ["All", "▦"],
-  ["Tools", "⌕"],
-  ["Games", "🎮"],
-  ["Social", "♟"],
-  ["Media", "▶"],
-  ["Entertainment", "🎬"],
-  ["Other", "◇"]
-];
 
 const grid = document.getElementById("appGrid");
-const categoryBar = document.getElementById("categoryBar");
 const searchInput = document.getElementById("searchInput");
 const noResults = document.getElementById("noResults");
 
-let selectedCategory = "All";
 let visibleCount = 8;
-
-
-function renderCategories() {
-  categoryBar.innerHTML = categories.map(([name, icon]) => `
-    <button class="category ${name === selectedCategory ? "active" : ""}" data-category="${name}">
-      <span class="cat-icon">${icon}</span>
-      <span>${name}</span>
-    </button>
-  `).join("");
-
-  categoryBar.querySelectorAll(".category").forEach(btn => {
-    btn.addEventListener("click", () => {
-      selectedCategory = btn.dataset.category;
-      renderCategories();
-      renderApps();
-    });
-  });
-}
 
 
 function badgeClass(badge) {
@@ -62,13 +31,10 @@ function renderApps() {
   const q = searchInput.value.trim().toLowerCase();
 
   const filtered = apps.filter(app =>
-    (selectedCategory === "All" || app.category === selectedCategory) &&
-    (
-      !q ||
-      `${app.name} ${app.category} ${app.description}`
-        .toLowerCase()
-        .includes(q)
-    )
+    !q ||
+    `${app.name} ${app.category} ${app.description}`
+      .toLowerCase()
+      .includes(q)
   );
 
   const shown = filtered.slice(0, visibleCount);
@@ -93,13 +59,17 @@ function renderApps() {
       </div>
 
       <div class="app-info">
-        <div class="app-name">${app.name}</div>
+
+        <div class="app-name">
+          ${app.name}
+        </div>
 
         <div class="app-meta">
           ${app.version}
           <span class="dot">•</span>
           ${app.category}
         </div>
+
       </div>
 
       <div class="app-description">
@@ -108,7 +78,8 @@ function renderApps() {
 
       ${
         app.download
-          ? `<button class="download" onclick="window.open('${app.download}', '_blank')">
+          ? `<button class="download"
+               onclick="window.open('${app.download}', '_blank')">
                ↓ &nbsp; Download
              </button>`
           : `<button class="download" disabled>
@@ -130,7 +101,6 @@ function renderApps() {
 function renderFeatured() {
   const featuredBox = document.getElementById("featuredApp");
 
-  // No featured APK yet
   featuredBox.innerHTML = `
     <div class="no-featured">
       No featured APK yet.
@@ -168,6 +138,5 @@ document.querySelector(".search-toggle").addEventListener("click", () => {
 });
 
 
-renderCategories();
 renderFeatured();
 renderApps();
