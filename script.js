@@ -277,6 +277,12 @@ document.addEventListener("pointerdown", function(event) {
   }
 
 });
+function closeAnnouncement() {
+  const announcement =
+    document.getElementById("announcement");
+
+  announcement.style.display = "none";
+               }
 
 
 renderFeatured();
