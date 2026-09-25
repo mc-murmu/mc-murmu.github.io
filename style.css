@@ -251,3 +251,151 @@ body.light .site-bg:after{opacity:.08}
   justify-content:flex-end
 }
 @media(max-width:420px){.app-grid{grid-template-columns:1fr}.app-card{display:grid;grid-template-columns:auto 1fr;gap:10px}.app-card .download{grid-column:1/-1}.app-info{margin-top:0}.app-description{grid-column:1/-1}}
+/* =========================
+   ANNOUNCEMENT DIALOG
+========================= */
+
+.announcement-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(2, 7, 18, 0.78);
+  backdrop-filter: blur(10px);
+
+  animation: announcementFade .3s ease;
+}
+
+.announcement-box {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 28px 24px;
+
+  text-align: center;
+
+  background: linear-gradient(
+    145deg,
+    #0d1a2e,
+    #091426
+  );
+
+  border: 1px solid rgba(118, 80, 255, .4);
+  border-radius: 20px;
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.55),
+    0 0 35px rgba(118,80,255,.12);
+
+  animation: announcementPop .35s ease;
+}
+
+.announcement-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 15px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(118,80,255,.14);
+
+  color: #a77aff;
+
+  font-size: 28px;
+}
+
+.announcement-box h2 {
+  margin: 0 0 10px;
+
+  color: #edf3ff;
+
+  font-size: 22px;
+}
+
+.announcement-box p {
+  margin: 0 auto 22px;
+
+  max-width: 340px;
+
+  color: #9eacc4;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.announcement-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.announcement-btn {
+  width: 100%;
+
+  padding: 12px 18px;
+
+  border-radius: 11px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  text-align: center;
+
+  transition: .2s ease;
+}
+
+.announcement-btn.primary {
+  background: linear-gradient(
+    90deg,
+    #6040f0,
+    #7844ff
+  );
+
+  color: white;
+}
+
+.announcement-btn.secondary {
+  border: 1px solid #29405f;
+
+  background: rgba(18,35,59,.7);
+
+  color: #cbd7e9;
+}
+
+.announcement-btn:hover {
+  transform: translateY(-1px);
+}
+
+@keyframes announcementFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes announcementPop {
+  from {
+    opacity: 0;
+    transform: scale(.92) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  }
