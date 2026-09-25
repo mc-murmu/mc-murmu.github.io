@@ -43,7 +43,7 @@ const apps = [
     logo: "https://imgdb.in/i/gU0lIc9R3W.png",
     description: "● Pro | Paid features unlocked\n● Stable mod\n● No VPN required\n● All templates working\n● Business builder mode enabled\n● Security notice removed\n● Multiple languages available\n● Regional restrictions removed\n● Login by \"Email & Number & Facebook & Tiktok\" ✅\n● Can export your videos without login & without internet ✅\n● Requires Android 6.0 or higher\n● CPU architecture: Universal\n● Optimized and cleaned resources for fast loading",
     badge: "Trending",
-    download: ""
+    download: "https://androforever.com/capcut-pro-apk-mod-android/"
   },
   {
     name: "Pawxy Vpn [ Premium ]",
